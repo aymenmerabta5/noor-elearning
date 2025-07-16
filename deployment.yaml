@@ -1,0 +1,117 @@
+# To do i need to do the ConfigMap of the env file 'kubectl create configmap noor-elearning-env --from-env-file=.env -n noor-elearning' in another world because iam tired
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: noor-elearning-deployment
+  namespace: noor-elearning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: noor-elearning
+  template:
+    metadata:
+      labels:
+        app: noor-elearning
+    spec:
+      containers:
+        - name: noor-elearning
+          image: aymenmerabta12/noor-elearning:latest
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: noor-elearning-env
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: noor-elearning-service
+  namespace: noor-elearning
+spec:
+  selector:
+    app: noor-elearning
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: noor-elearning
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: noor-elearning
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: noor-elearning
+data:
+  default.conf: |
+    server {
+      listen 80;
+      location / {
+        proxy_pass http://noor-elearning-service:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+      }
+    }

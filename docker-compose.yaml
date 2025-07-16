@@ -1,0 +1,23 @@
+version: "3"
+services:
+  noor-elearning:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: aymenmerabta12/noor-elearning:latest
+    container_name: noor-elearning
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+  nginx:
+    image: nginx:latest
+    container_name: noor-elearning-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/default.conf
+    depends_on:
+      - noor-elearning
