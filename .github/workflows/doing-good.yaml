@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-modules-
       - name: Install dependencies
-        run: npm install -g pnpm@latest && pnpm install
+        run: npm install -g pnpm@10.10.0 && pnpm install
       - name: Linting the code
         run: pnpm lint
 
