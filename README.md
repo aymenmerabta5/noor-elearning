@@ -1,29 +1,53 @@
-# Create T3 App
+# Noor E-Learning Platform
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Noor E-Learning is a modern, full-stack web application designed for scalable online education. It leverages Next.js, tRPC, Drizzle ORM, and React for a robust, maintainable, and high-performance experience.
 
-## What's next? How do I make an app with this?
+## Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Multi-language support**: Arabic, English, French
+- **Authentication**: Secure user authentication and session management
+- **API**: tRPC for type-safe, end-to-end APIs
+- **Database**: Drizzle ORM for SQL migrations and schema management
+- **Testing**: Vitest for unit and integration tests
+- **Styling**: PostCSS and global CSS
+- **Containerization**: Docker and Docker Compose for easy deployment
+- **Reverse Proxy**: Nginx configuration for production
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Project Structure
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- `src/app/` - Next.js app directory, including API routes and page layouts
+- `src/components/` - Reusable UI components
+- `src/i18n/` - Internationalization helpers
+- `src/lib/` - Utility libraries (auth, etc.)
+- `src/server/` - Server-side logic, database, and API routers
+- `src/styles/` - Global styles
+- `src/trpc/` - tRPC client/server setup
+- `drizzle/` - Database migration files
+- `messages/` - Localization message files
+- `public/` - Static assets
 
-## Learn More
+## Getting Started
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. Install dependencies: `pnpm install`
+2. Start the database: `bash start-database.sh`
+3. Run the development server: `pnpm dev`
+4. Run tests: `pnpm test`
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Deployment
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- Use Docker Compose and Nginx for production deployment.
+- See `docker-compose.yaml` and `nginx.conf` for configuration details.
 
-## How do I deploy this?
+## Team & Contribution
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+All code and engineering work is split among the Noor E-Learning team. Contributions are managed internally. External contributions are not permitted.
+
+## License
+
+This project is licensed under the Noor E-Learning Restricted License:
+
+- You may NOT copy, modify, distribute, sublicense, or use any part of this codebase for any purpose outside the Noor E-Learning team.
+- All rights reserved. No permission is granted for commercial, educational, or personal use by third parties.
+- The code and engineering work are the exclusive property of the Noor E-Learning team.
+
+For questions, contact the project owner.
