@@ -58,10 +58,6 @@ jobs:
       - name: Check formatting
         id: check-formatting
         run: pnpm format:check
-      - name: Format with Prettier
-        if: steps.check-formatting.outcome == 'failure'
-        run: pnpm format:write
-
   type-check:
     runs-on: ubuntu-latest
     steps:
