@@ -27,7 +27,7 @@ const Navbar: FC = async () => {
         </svg>
         <h1 className="font-sans text-2xl font-bold">Noor</h1>
       </Link>
-      <div className="flex items-center justify-end space-x-4 font-sans">
+      <div className="flex items-center justify-end space-x-4 font-serif">
         <Link href="/" className="group relative text-lg">
           {t("Navbar.home")}
           <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
