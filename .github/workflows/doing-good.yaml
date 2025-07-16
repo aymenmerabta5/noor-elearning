@@ -1,0 +1,59 @@
+name: Doing Good
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  doing-good:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Setup pnpm cache
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+          run_install: false
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+      - name: Install dependencies
+        run: npm install -g pnpm@latest && pnpm install
+      - name: Linting the code
+        run: pnpm lint
+
+      - name: Check formatting
+        run: pnpm prettier --check .
+
+      - name: TypeScript type check
+        run: pnpm tsc --noEmit
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build project
+        run: pnpm build
+      - name: Uploading artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: ./.next
+      - name: Downlaoding artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifact
+          path: ./.next

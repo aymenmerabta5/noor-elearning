@@ -1,5 +1,5 @@
-import ModeToggle from "../../../components/ModeToggle";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import ModeToggle from "../../../components/ModeToggle/ModeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { getTranslations } from "next-intl/server";
 import { Card } from "@/components/ui/card";
 

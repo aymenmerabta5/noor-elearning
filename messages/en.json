@@ -4,6 +4,7 @@
     "about": "Go to the about page"
   },
   "Navbar": {
+    "logo": "Noor",
     "home": "Home",
     "about": "About",
     "contact": "Contact",
