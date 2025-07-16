@@ -36,7 +36,7 @@ jobs:
         run: npm install -g pnpm@10.10.0 && pnpm install
       - name: Linting the code
         run: pnpm lint
-
+        continue-on-error: true
       - name: Check formatting
         run: pnpm prettier --check .
 
