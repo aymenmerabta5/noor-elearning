@@ -10,9 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { type FC } from "react";
+import { useTranslations } from "next-intl";
 
 const ModeToggle: FC = () => {
   const { setTheme } = useTheme();
+  const t = useTranslations("Theme");
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -24,13 +26,13 @@ const ModeToggle: FC = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          {t("light")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+          {t("dark")}
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          {t("system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

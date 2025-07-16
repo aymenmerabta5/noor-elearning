@@ -1,12 +1,15 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { type FC } from "react";
 
-const Navbar: FC = () => {
+const Navbar: FC = async () => {
+  const t = await getTranslations();
+
   return (
     <div className="text-primary-background flex items-center justify-between border-b p-4 font-sans">
       <Link
         href="/"
-        className="flex items-center gap-4 font-serif text-2xl font-bold"
+        className="flex h-full items-center gap-4 font-serif text-2xl font-bold"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,20 +28,23 @@ const Navbar: FC = () => {
         Noor
       </Link>
       <div className="flex items-center justify-end space-x-4 font-sans">
-        <Link href="/" className="text-lg hover:underline">
-          Home
+        <Link href="/" className="group relative text-lg">
+          {t("Navbar.home")}
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
         </Link>
-        <Link href="/about" className="text-lg hover:underline">
-          About
+        <Link href="/about" className="group relative text-lg">
+          {t("Navbar.about")}
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
         </Link>
-        <Link href="/contact" className="text-lg hover:underline">
-          Contact
+        <Link href="/contact" className="group relative text-lg">
+          {t("Navbar.contact")}
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link
           href="/login"
-          className="bg-primary text-primary-foreground text-lg hover:underline"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-4xl px-4 py-2 text-lg"
         >
-          Login
+          {t("Navbar.login")}
         </Link>
       </div>
     </div>

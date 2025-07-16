@@ -2,5 +2,22 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "register": "Register"
+  },
+  "Languages": {
+    "en": "English",
+    "fr": "French",
+    "ar": "Arabic"
+  },
+  "Theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }

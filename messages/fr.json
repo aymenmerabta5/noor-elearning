@@ -2,5 +2,22 @@
   "HomePage": {
     "title": "Bonjour le monde!",
     "about": "Aller à la page à propos"
+  },
+  "Navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "register": "Inscription"
+  },
+  "Languages": {
+    "en": "Anglais",
+    "fr": "Français",
+    "ar": "Arabe"
+  },
+  "Theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
   }
 }

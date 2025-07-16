@@ -40,9 +40,12 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  const isRTL: boolean = locale === "ar";
   return (
     <html
       lang={locale}
+      dir={isRTL ? "rtl" : "ltr"}
       className={`${inter.variable} ${lora.variable} ${jetBrainsMono.variable}`}
       suppressHydrationWarning
     >
