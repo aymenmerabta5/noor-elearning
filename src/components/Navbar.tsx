@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { type FC } from "react";
 
 const Navbar: FC = async () => {
@@ -9,12 +9,12 @@ const Navbar: FC = async () => {
     <div className="text-primary-background flex items-center justify-between border-b p-4 font-sans">
       <Link
         href="/"
-        className="flex h-full items-center gap-4 font-serif text-2xl font-bold"
+        className="flex h-full items-center gap-2 font-serif text-2xl font-bold"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
+          width="25"
+          height="25"
           viewBox="0 0 14 14"
           fill="none"
         >
@@ -25,7 +25,7 @@ const Navbar: FC = async () => {
             className="fill-current"
           />
         </svg>
-        Noor
+        <h1 className="font-sans text-2xl font-bold">Noor</h1>
       </Link>
       <div className="flex items-center justify-end space-x-4 font-sans">
         <Link href="/" className="group relative text-lg">
