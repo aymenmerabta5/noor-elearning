@@ -19,5 +19,11 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "Footer": {
+    "footerText": "© {year} Noor Elearning. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contactUs": "Contact Us"
   }
 }

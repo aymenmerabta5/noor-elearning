@@ -25,20 +25,20 @@ const Navbar: FC = async () => {
             className="fill-current"
           />
         </svg>
-        <h1 className="font-sans text-2xl font-bold">Noor</h1>
+        <h1 className="font-sans text-2xl font-bold">{t("Navbar.logo")}</h1>
       </Link>
       <div className="flex items-center justify-end space-x-4 font-serif">
         <Link href="/" className="group relative text-lg">
           {t("Navbar.home")}
-          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 font-semibold transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link href="/about" className="group relative text-lg">
           {t("Navbar.about")}
-          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 font-semibold transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link href="/contact" className="group relative text-lg">
           {t("Navbar.contact")}
-          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full"></span>
+          <span className="bg-primary absolute bottom-0 left-0 h-0.5 w-0 font-semibold transition-all duration-300 group-hover:w-full"></span>
         </Link>
         <Link
           href="/login"

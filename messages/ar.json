@@ -4,6 +4,7 @@
     "about": "اذهب إلى صفحة حول"
   },
   "Navbar": {
+    "logo": "نور",
     "home": "الرئيسية",
     "about": "حول",
     "contact": "اتصل بنا",
@@ -19,5 +20,11 @@
     "light": "فاتح",
     "dark": "داكن",
     "system": "نظام"
+  },
+  "Footer": {
+    "footerText": "© {year} نور للتعلم الإلكتروني. جميع الحقوق محفوظة",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة",
+    "contactUs": "اتصل بنا"
   }
 }

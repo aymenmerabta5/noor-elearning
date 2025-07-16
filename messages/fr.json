@@ -4,6 +4,7 @@
     "about": "Aller à la page à propos"
   },
   "Navbar": {
+    "logo": "Noor",
     "home": "Accueil",
     "about": "À propos",
     "contact": "Contact",
@@ -19,5 +20,11 @@
     "light": "Clair",
     "dark": "Sombre",
     "system": "Système"
+  },
+  "Footer": {
+    "footerText": "© {year} Noor Elearning. Tous droits réservés.",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions d'utilisation",
+    "contactUs": "Contactez-nous"
   }
 }
