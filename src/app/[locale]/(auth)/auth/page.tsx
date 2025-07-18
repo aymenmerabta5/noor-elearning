@@ -1,3 +1,5 @@
+"use client";
+
 import { type FC } from "react";
 import { Card } from "@/components/ui/card";
 import { CircleUser } from "lucide-react";
